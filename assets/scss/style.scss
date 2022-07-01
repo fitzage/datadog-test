@@ -73,7 +73,6 @@ $purple: #724eef;
 
 .sidebar {
   background-color: $purple;
-  width: 166px;
 }
 .mobile-nav {
   background: $purple;
@@ -84,7 +83,7 @@ $purple: #724eef;
 
 .main-content {
   @include media-breakpoint-up(md) {
-    max-width: 1234px;
+    // max-width: 1234px;
   }
   h1 + p {
     font-size: $font-size-lg;
@@ -246,7 +245,7 @@ $purple: #724eef;
       }
     }
     .text-item {
-      width: 432px;
+      width: 80%;
     }
     .item {
       img {
