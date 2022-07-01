@@ -1,0 +1,98 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Datadog'
+sectionPagesMenu = 'main'
+[params]
+  description = 'See inside any stack, any app, at any scale, anywhere.'
+
+# This may not be the best approach here, but I'm limited in time and resources. It allows my HTML to be rendered by the markdown renderer.
+[markup]
+[markup.goldmark]
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[menu]
+[[menu.product]]
+  name = 'Features'
+  url = '#'
+  weight = 5
+[[menu.product]]
+  name = 'APM'
+  url = '#'
+  weight = 10
+[[menu.product]]
+  name = 'Integrations'
+  url = '#'
+  weight = 20
+[[menu.product]]
+  name = 'Alerts'
+  url = '#'
+  weight = 30
+[[menu.product]]
+  name = 'API'
+  url = '#'
+  weight = 40
+[[menu.product]]
+  name = 'Pricing'
+  url = '#'
+  weight = 50
+[[menu.product]]
+  name = 'Documentation'
+  url = '#'
+  weight = 60
+[[menu.product]]
+  name = 'Support'
+  url = '#'
+  weight = 70
+[[menu.product]]
+  name = 'Resources'
+  url = '#'
+  weight = 80
+[[menu.product]]
+  name = 'Security'
+  url = '#'
+  weight = 90
+[[menu.about]]
+  name = 'Contact Us'
+  url = '#'
+  weight = 10
+[[menu.about]]
+  name = 'Partners'
+  url = '#'
+  weight = 20
+[[menu.about]]
+  name = 'Press'
+  url = '#'
+  weight = 30
+[[menu.about]]
+  name = 'Our Team'
+  url = '#'
+  weight = 40
+[[menu.about]]
+  name = 'Careers'
+  url = '#'
+  weight = 50
+[[menu.about]]
+  name = 'Legal'
+  url = '#'
+  weight = 60
+[[menu.social]]
+  name = 'Blog'
+  url = '#'
+  weight = 10
+[[menu.social]]
+  name = 'Espanol'
+  url = '#'
+  weight = 20
+[[menu.social]]
+  name = 'Japanese'
+  url = '#'
+  weight = 30
+[[menu.social]]
+  name = 'Instagram'
+  url = '#'
+  weight = 40
+[[menu.social]]
+  name = 'Twitter'
+  url = '#'
+  weight = 50

@@ -1,0 +1,319 @@
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/mixins';
+
+// Custom Variables
+
+/* Typography */
+@font-face {
+  font-family: 'National';
+  src: url('/fonts/testnational-book.otf') format('opentype');
+  // src: url("/fonts/test-national-book.woff2");
+  font-weight: 480;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'National';
+  src: url('/fonts/testnational-bold.otf') format('opentype');
+  // src: url("/fonts/test-national-bold.woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+$font-family-sans-serif: National;
+$font-family-base: National;
+$font-weight-normal: 480;
+$headings-font-weight: 700;
+$font-size-sm: $font-size-base * 0.75;
+$font-size-md: $font-size-base * 0.88;
+$font-size-mdlg: $font-size-base * 1.12;
+$font-size-lg: $font-size-base * 1.75;
+$line-height-lg: 1.2;
+$h1-font-size: $font-size-base * 3;
+
+/* Spacing */
+$spacer: 1rem;
+$spacers: ();
+$spacers: map-merge(
+  (
+    0: 0,
+    1: (
+      $spacer * 0.25,
+    ),
+    2: (
+      $spacer * 0.5,
+    ),
+    3: $spacer,
+    4: (
+      $spacer * 1.5,
+    ),
+    5: (
+      $spacer * 2.5,
+    ),
+    6: (
+      $spacer * 3.5,
+    ),
+    30: (
+      $spacer * 1.875,
+    ),
+  ),
+  $spacers
+);
+
+/* Colors */
+$light: #f5f5f5;
+$blue: #2b2aa7;
+$green: #14d071;
+$red: #ff635a;
+$purple: #724eef;
+
+// end variables
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+.sidebar {
+  background-color: $purple;
+  width: 166px;
+}
+.mobile-nav {
+  background: $purple;
+  img {
+    width: 50px;
+  }
+}
+
+.main-content {
+  @include media-breakpoint-up(md) {
+    max-width: 1234px;
+  }
+  h1 + p {
+    font-size: $font-size-lg;
+    line-height: $line-height-lg;
+  }
+}
+
+.cta-button {
+  color: $purple;
+  border: 3px solid $purple;
+  font-size: 1.5rem;
+  &:hover {
+    text-decoration: none;
+    background: $purple;
+    color: white;
+  }
+}
+
+.plan {
+  .name {
+    font-size: $font-size-sm;
+  }
+  ul {
+    padding-left: 15px;
+    list-style-type: '– ';
+  }
+  &:not(:last-child) {
+    .inner {
+      border-right: 1px solid #c7c7c7;
+    }
+  }
+  .detail-link a {
+    border-bottom: 1px solid;
+    &:hover {
+      text-decoration: none;
+      font-weight: $font-weight-bold;
+    }
+  }
+  .price {
+    font-size: 3em;
+    line-height: 1;
+    font-weight: $font-weight-bold;
+    // I'm not actually getting this to work in many variations, so perhaps
+    // the test OTF files don't have the full feature set
+    font-variant-numeric: proportional-nums lining-nums tabular-nums;
+    &:before {
+      content: '$';
+      font-size: 0.65em;
+    }
+  }
+  .per {
+    font-size: $font-size-md;
+  }
+}
+.plan.infra {
+  .name,
+  .detail-link a {
+    color: $blue;
+    border-color: $blue;
+  }
+}
+.plan.apm {
+  .name,
+  .detail-link a {
+    color: $green;
+    border-color: $green;
+  }
+}
+.plan.logs {
+  .name,
+  .detail-link a {
+    color: $red;
+    border-color: $red;
+  }
+}
+
+.features {
+  display: grid;
+  grid-auto-rows: 125px;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+  .feature {
+    span.name {
+      font-size: $font-size-sm;
+    }
+    p {
+      font-size: $font-size-lg;
+      max-width: 400px;
+    }
+    a {
+      background-blend-mode: multiply;
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &.apm {
+      a {
+        background-image: url(/img/apm-bg.png);
+        background-color: $green;
+        &:hover {
+          background-image: none;
+        }
+      }
+    }
+    &.infra {
+      a {
+        background-image: url(/img/infra-bg.png);
+        background-color: $blue;
+        &:hover {
+          background-image: none;
+        }
+      }
+    }
+    &.logs {
+      a {
+        background-image: url(/img/logs-bg.png);
+        background-color: $red;
+        &:hover {
+          background-image: none;
+        }
+      }
+    }
+  }
+  .short {
+    grid-row: span 2;
+  }
+  .tall {
+    grid-row: span 4;
+  }
+  .x-tall {
+    grid-row: span 5;
+  }
+
+  .callout {
+    background-color: $light;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+    p.name {
+      font-size: $font-size-sm;
+      color: $purple;
+    }
+    .info {
+      p.content {
+        font-size: $font-size-lg;
+      }
+      p.detail-link {
+        a {
+          font-size: $font-size-mdlg;
+          color: $purple;
+          border-bottom: 1px solid $purple;
+          &:hover {
+            text-decoration: none;
+            font-weight: $font-weight-bold;
+          }
+        }
+      }
+    }
+    .text-item {
+      width: 432px;
+    }
+    .item {
+      img {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+    }
+    .carousel-control-next {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 60%;
+    }
+  }
+
+  .customers {
+    display: grid;
+    grid-auto-rows: 186px;
+    grid-gap: 0;
+    grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.15));
+    .short {
+      grid-row: span 1;
+      grid-column: span 1;
+      align-items: center;
+      justify-content: center;
+    }
+    .tall {
+      grid-row: span 2;
+      grid-column: span 2;
+      align-items: flex-start;
+      justify-content: flex-end;
+      blockquote {
+        margin-top: 30px;
+        cite {
+          font-style: normal;
+          font-weight: $font-weight-bold;
+          font-size: $font-size-md;
+          line-height: 1.1;
+          span {
+            font-size: $font-size-sm;
+            font-weight: $font-weight-normal;
+            text-transform: uppercase;
+            display: block;
+          }
+        }
+      }
+      p {
+        margin-bottom: 0;
+        a {
+          color: $purple;
+          font-size: $font-size-mdlg;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  color: white;
+  a {
+    color: white;
+  }
+  background: linear-gradient(180deg, #443e48 0%, #110617 100%);
+  .footer-content {
+    @include media-breakpoint-up(md) {
+      max-width: 1234px;
+      margin-left: 166px;
+    }
+  }
+}
