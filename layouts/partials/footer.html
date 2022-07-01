@@ -1,31 +1,36 @@
 <footer>
-  <div class="footer-content pl-30 pt-5 pb-6 w-100">
-    <div class="row mb-30">
-      <div class="col-lg-2">
-        <button type="button" class="btn btn-outline-light">Free Trial</button>
-      </div>
-      <div class="col-lg-5">
-        <ul class="footer-nav list-unstyled">
-          {{ range .Site.Menus.product }}
-          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-          {{ end }}
-        </ul>
-      </div>
-      <div class="col-lg-5">
+  <div class="container ml-0">
+    <div class="row">
+      <div class="col-md-10 offset-md-2">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-2">
+            <button type="button" class="btn btn-outline-light">Free
+              Trial</button>
+          </div>
+          <div class="col-lg-5">
             <ul class="footer-nav list-unstyled">
-              {{ range .Site.Menus.about }}
+              {{ range .Site.Menus.product }}
               <li><a href="{{ .URL }}">{{ .Name }}</a></li>
               {{ end }}
             </ul>
           </div>
-          <div class="col-lg-6">
-            <ul class="footer-nav list-unstyled">
-              {{ range .Site.Menus.social }}
-              <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-              {{ end }}
-            </ul>
+          <div class="col-lg-5">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="footer-nav list-unstyled">
+                  {{ range .Site.Menus.about }}
+                  <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                  {{ end }}
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="footer-nav list-unstyled">
+                  {{ range .Site.Menus.social }}
+                  <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                  {{ end }}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ some of these issues:
 
 So with that in mind, here are some decisions I made for this build:
 
-1. I generally am not a huge fan of bootstrap utility classes because of how cluttered the HTML becomes, and therefore how much more difficult it is to read. However, there is certainly an advantage in regards to code reusability and CSS file size which can affect performance. Given this and the fact that I saw them used in the existing code on Datadog websites, I used them as much as I felt was reasonable.
+1. I initially toyed with a pixel-perfect width sidebar, but spent too much time fighting with bootstrap. The final result is more fluid in width, but plays nicely with bootstrap. This also required adjusting the width of the bootstrap container variable for xl. Container-fluid would expand too far on larger screen widths.
 
 1. While this is a single page, I did incorporate some additional page stubs so that I could use the actual Hugo Menu function to generate the navigation.
 

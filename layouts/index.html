@@ -7,7 +7,7 @@
 </nav>
 
 <div class="container px-0 min-vh-100 h-auto ml-0">
-  <div class="row d-flex">
+  <div class="row d-flex pr-md-4 mw-100">
     <div class="col-md-2">
       <nav class="sidebar pl-4 pt-5 h-100 d-none d-lg-block w-100">
         <a href="#"><img src="{{ $logo.Permalink }}" alt="Datadog Logo"
@@ -16,85 +16,83 @@
       </nav>
     </div>
     <div class="col-12 col-md-10">
-      <div class="main-content pt-5 pb-6 mb-6">
-        <div class="row mb-30">
-          <div class="col-lg-4 cta d-flex flex-column">
-            <h1 class="mt-n3">{{ .Page.Title }}</h1>
-            <p class="flex-grow-1">See inside any stack, any app, at any scale,
-              anywhere.</p>
-            <a href="#"
-              class="cta-button text-uppercase d-flex w-100 justify-content-center align-items-center py-3">Try
-              Free</a>
-          </div>
-          <div class="col-lg-8 d-flex">
-            {{ range .Params.plans }}
-            <div class="plan {{ .class }} bg-light py-4 pl-4">
-              <div class="inner d-flex flex-column h-100 pr-4">
-                <p class="name text-uppercase font-weight-bold">{{ .name }}</p>
-                <p class="starting mb-0">Starting at</p>
-                <p class="price mb-3">{{ .price }}</p>
-                <p class="per">Per host, per month*</p>
-                <div class="info flex-grow-1">
-                  {{ .info | markdownify }}
-                </div>
-                <p class="detail-link mb-0"><a href="#">See Details</a></p>
+      <div class="row mb-30 pt-5">
+        <div class="col-lg-4 cta d-flex flex-column">
+          <h1 class="mt-n3">{{ .Page.Title }}</h1>
+          <p class="flex-grow-1">See inside any stack, any app, at any scale,
+            anywhere.</p>
+          <a href="#"
+            class="cta-button text-uppercase d-flex w-100 justify-content-center align-items-center py-3">Try
+            Free</a>
+        </div>
+        <div class="col-lg-8 d-flex">
+          {{ range .Params.plans }}
+          <div class="plan {{ .class }} bg-light py-4 pl-4">
+            <div class="inner d-flex flex-column h-100 pr-4">
+              <p class="name text-uppercase font-weight-bold">{{ .name }}</p>
+              <p class="starting mb-0">Starting at</p>
+              <p class="price mb-3">{{ .price }}</p>
+              <p class="per">Per host, per month*</p>
+              <div class="info flex-grow-1">
+                {{ .info | markdownify }}
               </div>
+              <p class="detail-link mb-0"><a href="#">See Details</a></p>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      <div class="features pb-5">
+        {{ range .Params.features }}
+        <div class="feature {{ .class }} short">
+          <a href="#"
+            class="text-white d-flex w-100 h-100 justify-content-center align-items-center flex-column">
+            <span class="name text-uppercase text-center font-weight-bold">{{
+              .name }}</span>
+            <p class="text-center mb-0 font-weight-normal">{{ .description }}
+            </p>
+          </a>
+        </div>
+        {{ end }}
+        <div class="callout tall pl-4 pt-30 h-100 d-flex flex-column">
+          <div id="textCarousel" class="owl-carousel owl-theme flex-grow-1">
+            {{ range .Params.carousel }}
+            <div class="text-item">
+              <div class="slide-inner d-flex">
+                <div class="info">
+                  <p class="name text-uppercase font-weight-bold">{{ .name }}
+                  </p>
+                  <p class="content">{{ .content }}</p>
+                  <p class="detail-link"><a href="#">Read More</a></p>
+                </div>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+          <button class="carousel-control-next"><img src="/img/next-slide.svg"
+              data-target="#carouselText" data-slide="next"></button>
+          <div id="imageCarousel" class="owl-carousel owl-theme">
+            {{ range .Params.carousel }}
+            {{ $slideImage := resources.Get .image }}
+            <div class="item pb-4">
+              <img src="{{ $slideImage.Permalink }}" alt="{{ .alt }}"
+                width="432" class="img-fluid">
             </div>
             {{ end }}
           </div>
         </div>
-        <div class="features">
-          {{ range .Params.features }}
-          <div class="feature {{ .class }} short">
-            <a href="#"
-              class="text-white d-flex w-100 h-100 justify-content-center align-items-center flex-column">
-              <span class="name text-uppercase text-center font-weight-bold">{{
-                .name }}</span>
-              <p class="text-center mb-0 font-weight-normal">{{ .description }}
-              </p>
-            </a>
-          </div>
-          {{ end }}
-          <div class="callout tall pl-4 pt-30 h-100 d-flex flex-column">
-            <div id="textCarousel" class="owl-carousel owl-theme flex-grow-1">
-              {{ range .Params.carousel }}
-              <div class="text-item">
-                <div class="slide-inner d-flex">
-                  <div class="info">
-                    <p class="name text-uppercase font-weight-bold">{{ .name }}
-                    </p>
-                    <p class="content">{{ .content }}</p>
-                    <p class="detail-link"><a href="#">Read More</a></p>
-                  </div>
-                </div>
-              </div>
-              {{ end }}
-            </div>
-            <button class="carousel-control-next"><img src="/img/next-slide.svg"
-                data-target="#carouselText" data-slide="next"></button>
-            <div id="imageCarousel" class="owl-carousel owl-theme">
-              {{ range .Params.carousel }}
-              {{ $slideImage := resources.Get .image }}
-              <div class="item pb-4">
-                <img src="{{ $slideImage.Permalink }}" alt="{{ .alt }}"
-                  width="432" class="img-fluid">
-              </div>
-              {{ end }}
-            </div>
-          </div>
-          <div class="customers x-tall">
-            {{ range .Params.customers }}
-            <div class="customer {{ .size }} d-flex flex-column p-4"
-              style="background-color: {{ .color }}">
-              {{ $customerLogo := resources.Get .image }}
-              <img src="{{ $customerLogo.Permalink }}" alt="{{ .name }} Logo"
-                class="img-fluid">
-              {{ with .content }}
-              {{ . | markdownify }}
-              {{ end }}
-            </div>
+        <div class="customers x-tall">
+          {{ range .Params.customers }}
+          <div class="customer {{ .size }} d-flex flex-column p-4"
+            style="background-color: {{ .color }}">
+            {{ $customerLogo := resources.Get .image }}
+            <img src="{{ $customerLogo.Permalink }}" alt="{{ .name }} Logo"
+              class="img-fluid">
+            {{ with .content }}
+            {{ . | markdownify }}
             {{ end }}
           </div>
+          {{ end }}
         </div>
       </div>
     </div>
