@@ -1,5 +1,10 @@
 # Datadog Take Home Test
 
+## Previews
+
+[Cloudfront](https://d39s59219hyv8v.cloudfront.net)
+[Netlify](https://master--frolicking-tarsier-e043f4.netlify.app/)
+
 ## Technologies
 
 Per the stated requirements, this uses the following:
