@@ -302,7 +302,9 @@ h1 + p {
     grid-gap: 0;
     grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
     filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.15));
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xs) {
+      grid-auto-rows: 120px;
+      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
     }
     .short {
       grid-row: span 1;
@@ -318,11 +320,10 @@ h1 + p {
         grid-column: span 3;
         order: -1;
         justify-content: center;
-        // align-items: center;
-        // blockquote,
-        // p {
-        //   display: none;
-        // }
+      }
+      @include media-breakpoint-down(xs) {
+        grid-row: span 3;
+        grid-column: span 2;
       }
       align-items: flex-start;
       justify-content: flex-end;
