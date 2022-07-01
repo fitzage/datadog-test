@@ -2,8 +2,8 @@
 
 ## Previews
 
-[Cloudfront](https://d39s59219hyv8v.cloudfront.net)
-[Netlify](https://master--frolicking-tarsier-e043f4.netlify.app/)
+- [Cloudfront](https://d39s59219hyv8v.cloudfront.net)
+- [Netlify](https://master--frolicking-tarsier-e043f4.netlify.app/)
 
 ## Technologies
 
