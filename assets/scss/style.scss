@@ -360,6 +360,11 @@ footer {
     font-size: $font-size-mdlg;
     border: 1px solid #979797;
     background: transparent;
+    color: white;
+    &:hover {
+      background-color: white;
+      color: $gray-900;
+    }
   }
   color: $gray-600;
   a {

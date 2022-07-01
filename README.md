@@ -30,9 +30,11 @@ So with that in mind, here are some decisions I made for this build:
 
 1. I put the content for the page in a markdown file with YAML front matter, as this is a very familiar format to me. If the team approaches this differently, I'm happy to adjust. Hugo has a lot of flexibility in this area.
 
-1. The main content of this page is a masonry style layout, and I chose to use a CSS-only approach. In some cases, a layout like this would be easily done with a simple column-based approach, but given the nature of the content blocks and how they are laid out, a row-based approach was clearly the way to go (while maintaining a reasonable data storage format). Of course this decision could be affected by the actual data format.
+1. The main content of this page is a masonry style layout, and I chose to use a CSS-only approach. In some cases, a layout like this would be easily done with a simple column-based approach, but given the nature of the content blocks and how they are laid out, a row-based approach was clearly the way to go. Of course this decision could be affected by the actual data format.
 
    The downside of the particular CSS Grid approach I used is that dimensions are not 100% identical to the design. On the actual team, I would make sure that an implementation decision like this was acceptable to the design team and anyone else involved.
+
+1. I used the same grid-based approach to give result that works with pretty straightforward data. There are other options that would have worked fine if I wanted to futz with the data more instead of having something that was just easily loopable from the content, but this seemed the most reusable and maintainable approach (assuming the same number of items). Since this doesn't scale down very far without dramatically decreasing text size, I moved the callout quote block to the top of the customers section on smaller screens.
 
 1. For most spacing and typography, I relied on modifying bootstrap variables (and adding some of my own). This means that I also may have deviated slightly from a pixel-perfect design in some areas, due to erring on the side of using existing spacing and typography variables instead of one-off styles.
 
