@@ -1,8 +1,10 @@
 {{ $currentPage := . }}
-<ul class="list-unstyled pt-6 text-uppercase font-weight-bold">
+<ul class="list-unstyled pt-6 font-weight-bold">
   {{ range .Site.Menus.main }}
   <li class="pb-4">
-    <a href="#" class="text-white">{{ .Title }}</a>
+    <a href="#" class="text-white text-uppercase">{{ .Title }}</a>
   </li>
   {{ end }}
+  <li class="pt-30 pb-4"><a href="#"
+      class="font-weight-normal text-white">Login</a></li>
 </ul>

@@ -1,23 +1,32 @@
 {{ partial "header.html" . }}
 {{ $logo := resources.Get "img/datadog-logo.svg" }}
 
-<nav class="mobile-nav w-100 d-block d-lg-none w-100">
-  <a href="#"><img src="{{ $logo.Permalink }}" alt="Datadog Logo"></a>
-  {{ partial "menu.html" . }}
+<nav class="mobile-nav w-100 d-block d-lg-none p-4">
+  <div class="d-flex justify-content-between">
+    <a href="#"><img src="{{ $logo.Permalink }}" alt="Datadog Logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <img src="/img/menu-toggler.svg" alt="Menu icon">
+    </button>
+  </div>
+  <div id="mobileMenu" class="collapse navbar-collapse">
+    {{ partial "menu.html" . }}
+  </div>
 </nav>
 
-<div class="container px-0 min-vh-100 h-auto ml-0">
-  <div class="row d-flex pr-md-4 mw-100">
-    <div class="col-md-2">
+<div class="container px-lg-0 min-vh-100 h-auto ml-lg-0">
+  <div class="row d-flex mw-lg-100">
+    <div class="d-none d-lg-block col-lg-2">
       <nav class="sidebar pl-4 pt-5 h-100 d-none d-lg-block w-100">
         <a href="#"><img src="{{ $logo.Permalink }}" alt="Datadog Logo"
             class="img-fluid"></a>
         {{ partial "menu.html" . }}
       </nav>
     </div>
-    <div class="col-12 col-md-10">
+    <div class="col-12 col-lg-10">
       <div class="row mb-30 pt-5">
-        <div class="col-lg-4 cta d-flex flex-column">
+        <div class="col-xl-4 cta d-flex flex-column">
           <h1 class="mt-n3">{{ .Page.Title }}</h1>
           <p class="flex-grow-1">See inside any stack, any app, at any scale,
             anywhere.</p>
@@ -25,10 +34,10 @@
             class="cta-button text-uppercase d-flex w-100 justify-content-center align-items-center py-3">Try
             Free</a>
         </div>
-        <div class="col-lg-8 d-flex">
+        <div class="col-xl-8 d-block d-sm-flex pt-4 pt-xl-0">
           {{ range .Params.plans }}
-          <div class="plan {{ .class }} bg-light py-4 pl-4">
-            <div class="inner d-flex flex-column h-100 pr-4">
+          <div class="plan {{ .class }} bg-light py-4 px-4 pr-sm-0">
+            <div class="inner d-flex flex-column h-100 pr-4 pb-4 pb-sm-0">
               <p class="name text-uppercase font-weight-bold">{{ .name }}</p>
               <p class="starting mb-0">Starting at</p>
               <p class="price mb-3">{{ .price }}</p>
@@ -44,9 +53,9 @@
       </div>
       <div class="features pb-5">
         {{ range .Params.features }}
-        <div class="feature {{ .class }} short">
+        <div class="feature {{ .class }} short mb-4 mb-lg-0">
           <a href="#"
-            class="text-white d-flex w-100 h-100 justify-content-center align-items-center flex-column">
+            class="text-white d-flex w-100 h-100 justify-content-center align-items-center flex-column py-5 py-lg-0">
             <span class="name text-uppercase text-center font-weight-bold">{{
               .name }}</span>
             <p class="text-center mb-0 font-weight-normal">{{ .description }}
@@ -54,7 +63,8 @@
           </a>
         </div>
         {{ end }}
-        <div class="callout tall pl-4 pt-30 h-100 d-flex flex-column">
+        <div
+          class="callout tall pl-4 pt-30 h-100 d-flex flex-column mb-4 mb-lg-0">
           <div id="textCarousel" class="owl-carousel owl-theme flex-grow-1">
             {{ range .Params.carousel }}
             <div class="text-item">

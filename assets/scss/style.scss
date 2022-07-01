@@ -9,29 +9,41 @@
 $container-max-widths: (
   sm: 540px,
   md: 720px,
-  lg: 1100px,
+  lg: 1200px,
   xl: 1440px,
+);
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1240px,
+  xl: 1480px,
 );
 
 /* Typography */
 @font-face {
   font-family: 'National';
   src: url('/fonts/testnational-book.otf') format('opentype');
-  // src: url("/fonts/test-national-book.woff2");
   font-weight: 480;
   font-style: normal;
 }
 @font-face {
   font-family: 'National';
   src: url('/fonts/testnational-bold.otf') format('opentype');
-  // src: url("/fonts/test-national-bold.woff2");
   font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'National';
+  src: url('/fonts/testnational-light.otf') format('opentype');
+  font-weight: 459;
   font-style: normal;
 }
 
 $font-family-sans-serif: National;
 $font-family-base: National;
 $font-weight-normal: 480;
+$font-weight-light: 459;
 $headings-font-weight: 700;
 $font-size-sm: $font-size-base * 0.75;
 $font-size-md: $font-size-base * 0.88;
@@ -75,6 +87,7 @@ $blue: #2b2aa7;
 $green: #14d071;
 $red: #ff635a;
 $purple: #724eef;
+$gray-600: #b6b6b6;
 
 // end variables
 
@@ -88,13 +101,17 @@ $purple: #724eef;
   img {
     width: 50px;
   }
+  .navbar-toggler {
+    img {
+      width: 30px;
+      height: auto;
+    }
+  }
 }
 
-.main-content {
-  h1 + p {
-    font-size: $font-size-lg;
-    line-height: $line-height-lg;
-  }
+h1 + p {
+  font-size: $font-size-lg;
+  line-height: $line-height-lg;
 }
 
 .cta-button {
@@ -119,6 +136,10 @@ $purple: #724eef;
   &:not(:last-child) {
     .inner {
       border-right: 1px solid #c7c7c7;
+      @include media-breakpoint-down(xs) {
+        border-right: none;
+        border-bottom: 1px solid #c7c7c7;
+      }
     }
   }
   .detail-link a {
@@ -168,6 +189,9 @@ $purple: #724eef;
 
 .features {
   display: grid;
+  @include media-breakpoint-down(md) {
+    display: block;
+  }
   grid-auto-rows: 125px;
   grid-gap: 30px;
   grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
@@ -228,7 +252,6 @@ $purple: #724eef;
       grid-row: span 6;
     }
   }
-
   .callout {
     background-color: $light;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
@@ -330,9 +353,41 @@ $purple: #724eef;
 }
 
 footer {
-  color: white;
+  .footer-category {
+    border-color: $gray-600;
+  }
+  button {
+    font-size: $font-size-mdlg;
+    border: 1px solid #979797;
+    background: transparent;
+  }
+  color: $gray-600;
   a {
-    color: white;
+    color: $gray-600;
+    &:hover {
+      text-decoration: none;
+      color: $gray-700;
+    }
   }
   background: linear-gradient(180deg, #443e48 0%, #110617 100%);
+  padding-top: 50px;
+  .footer-nav {
+    &.product {
+      columns: 2;
+      @include media-breakpoint-down(sm) {
+        columns: 1;
+      }
+    }
+  }
+  .terms {
+    padding-top: 80px;
+    ul {
+      li {
+        line-height: 1;
+        &:not(:last-child) {
+          border-right: 1px solid white;
+        }
+      }
+    }
+  }
 }
